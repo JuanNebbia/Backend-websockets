@@ -1,0 +1,56 @@
+[
+	{
+		"id": 1,
+		"status": "on",
+		"thumbnails": [
+			{
+				"path": "D:\\Programación\\Coderhouse\\Backend\\Entregables\\04-websockets\\public\\img\\162591-800-auto.png",
+				"originalName": "162591-800-auto.png"
+			},
+			{
+				"path": "D:\\Programación\\Coderhouse\\Backend\\Entregables\\04-websockets\\public\\img\\162595-800-auto.png",
+				"originalName": "162595-800-auto.png"
+			},
+			{
+				"path": "D:\\Programación\\Coderhouse\\Backend\\Entregables\\04-websockets\\public\\img\\MOTOG82-3-6328bc8794b30.jpg",
+				"originalName": "MOTOG82-3-6328bc8794b30.jpg"
+			}
+		],
+		"havePics": true,
+		"title": "Moto G82",
+		"description": "celular gama media, tres cámaras, color negro",
+		"code": "25232",
+		"price": "95000",
+		"stock": "35",
+		"category": "phones"
+	},
+	{
+		"id": 2,
+		"status": false,
+		"thumbnails": [
+			{
+				"path": "D:\\Programación\\Coderhouse\\Backend\\Entregables\\04-websockets\\public\\img\\D_NQ_NP_912369-MLA51000508356_082022-O.jpg",
+				"originalName": "D_NQ_NP_912369-MLA51000508356_082022-O.jpg"
+			}
+		],
+		"havePics": true,
+		"title": "Samsung A33",
+		"description": "celular gama media, cuatro cámaras, color negro",
+		"code": "342",
+		"price": "89999",
+		"stock": "27",
+		"category": "phones"
+	},
+	{
+		"id": 3,
+		"status": "on",
+		"thumbnails": [],
+		"havePics": false,
+		"title": "Moto G7 Power",
+		"description": "celular gama baja bla bla bla",
+		"code": "252",
+		"price": "444",
+		"stock": "3",
+		"category": "phones"
+	}
+]
