@@ -44,7 +44,16 @@ router.get('/realtimeproducts', async (req, res)=>{
 
 router.post('/realtimeproducts', uploader.array('files'), async (req, res)=>{
     const newProduct = req.body
+    if(req.files){
+        const paths = req.files.map(file => {
+            return {path: file.path,
+             originalName: file.originalname    
+            }
+        })
+        newProduct.thumbnails = paths
+    }
     const socket = req.app.get('socket')
+    console.log(req.files);
     if(!newProduct){
         return res.status(400).send({
             error: 'missing product'
