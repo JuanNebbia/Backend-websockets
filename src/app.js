@@ -26,4 +26,6 @@ const socketServer = new Server(httpServer)
 
 socketServer.on('connection', socket => {
     console.log('new client connected')
+    app.set('socket', socket)
+    socket.on('mes', data => console.log(data))
 })

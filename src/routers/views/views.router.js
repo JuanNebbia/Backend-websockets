@@ -6,7 +6,7 @@ const router = Router()
 
 const productManager = new ProductManager('./products.json')
 
-router.get('/products', async (req, res)=>{
+router.get('/', async (req, res)=>{
     const products = await productManager.getProducts()
     const limit = req.query.limit
     if(!limit){
@@ -21,22 +21,6 @@ router.get('/products', async (req, res)=>{
         products: limitedProducts,
         style: 'home.css',
         title: 'Products'
-    })
-})
-
-router.get('/products/:pid', async (req, res)=>{
-    const id = Number(req.params.pid)
-    const products = []
-    const product = await productManager.getProductById(id)
-    if(product.error){
-        return res.status(400).send({
-            error: product.error
-        })
-    }
-    products.push(product)
-    res.render('home',{
-        products: products,
-        style: 'home.css'
     })
 })
 
@@ -55,6 +39,20 @@ router.get('/realtimeproducts', async (req, res)=>{
         products: limitedProducts,
         style: 'home.css',
         title: 'Real Time Products'
+    })
+})
+
+router.post('/realtimeproducts', uploader.array('files'), async (req, res)=>{
+    const newProduct = req.body
+    const socket = req.app.get('socket')
+    if(!newProduct){
+        return res.status(400).send({
+            error: 'missing product'
+        })
+    }
+    socket.emit('newProduct', newProduct)
+    res.send({
+        status: 'success'
     })
 })
 
