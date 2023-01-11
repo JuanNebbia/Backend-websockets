@@ -44,6 +44,12 @@ router.get('/realtimeproducts', async (req, res)=>{
 
 router.post('/realtimeproducts', uploader.array('files'), async (req, res)=>{
     const newProduct = req.body
+    const socket = req.app.get('socket')
+    if(!newProduct){
+        return res.status(400).send({
+            error: 'missing product'
+        })
+    }
     if(req.files){
         const paths = req.files.map(file => {
             return {path: file.path,
@@ -51,13 +57,6 @@ router.post('/realtimeproducts', uploader.array('files'), async (req, res)=>{
             }
         })
         newProduct.thumbnails = paths
-    }
-    const socket = req.app.get('socket')
-    console.log(req.files);
-    if(!newProduct){
-        return res.status(400).send({
-            error: 'missing product'
-        })
     }
     socket.emit('newProduct', newProduct)
     res.send({

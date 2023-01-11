@@ -16,6 +16,12 @@ form.addEventListener('submit', event => {
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log(error))
+
+    form.reset()
+})
+
+socket.on('getProducts', data => {
+    console.log('probando 123' + data);
 })
 
 socket.on('newProduct', data => {
@@ -42,3 +48,4 @@ socket.on('newProduct', data => {
     
     productListContainer.append(newProductFragment)
 })
+
